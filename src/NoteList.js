@@ -7,7 +7,7 @@ export default class NoteList extends React.Component {
     createNoteList = () => {
         const list = this.props.notes.map(note => {
             return (
-                <Link key ={note.id} to={`/note/${note.id}`}>
+                <Link key ={note.id} to={`/notes/${note.id}`}>
                   <Note 
                   key={note.id}
                   name={note.name}

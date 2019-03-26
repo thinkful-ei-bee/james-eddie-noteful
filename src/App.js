@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import MainPage from './MainPage.js';
 import FolderPage from './FolderPage.js';
-import Note from './Note.js';
+import NotePage from './NotePage';
 import './App.css';
 
 class App extends Component {
@@ -37,7 +37,13 @@ class App extends Component {
         <Route
         exact
         path="/notes/:noteId"
-        component={Note} />
+
+        render ={(props)=>
+        <NotePage
+        notes={this.state.notes}
+        folders={this.state.folders}
+        history={props.history}
+        match={props.match}/>} />
       </div>
     );
   }
