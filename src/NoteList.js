@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Note from './Note.js';
 
 export default class NoteList extends React.Component {
 
     createNoteList = () => {
         const list = this.props.notes.map(note => {
             return (
-                <li key={note.id}>
-                <Link to={`/note/${note.id}`}>
-                <p>{note.name}</p>
+                <Link key ={note.id} to={`/note/${note.id}`}>
+                  <Note 
+                  key={note.id}
+                  name={note.name}
+                  modified={note.modified}/>
                 </Link>
-                </li>
             )
         })
         return list;

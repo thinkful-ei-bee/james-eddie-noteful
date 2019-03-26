@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-import NoteList from './NoteList';
-//import App from './App';
+import App from './App';
+import NotefulContent from './NotefulContent';
 
 
 ReactDOM.render(
 <BrowserRouter>
-<NoteList />
+<App data = {NotefulContent}/>
 </BrowserRouter>, 
 document.getElementById('root')
 );

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import MainPage from './MainPage.js';
-import Folder from './Folder.js';
+import FolderPage from './FolderPage.js';
 import Note from './Note.js';
 import './App.css';
 
 class App extends Component {
-
-
+// props.data will have our data that we need to put in our state
+// so our pages can access that information
+  state = this.props.data;
 
   render() {
     return (
@@ -15,12 +16,23 @@ class App extends Component {
         <Route
         exact
         path="/"
-        component={MainPage} />
+        render ={(props)=>
+          <MainPage 
+          notes={this.state.notes}
+          folders={this.state.folders}
+          />
+        }
+        />
         
         <Route
         exact
         path="/folders/:folderId"
-        component={Folder} />
+        
+        render ={(props)=>
+        <FolderPage 
+        notes={this.state.notes}
+        folders={this.state.folders}
+        match={props.match}/>}/>
         
         <Route
         exact
